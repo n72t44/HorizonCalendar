@@ -51,9 +51,11 @@ final class CalendarScrollView: UIScrollView {
 
   override var accessibilityElements: [Any]? {
     get {
+      let itemViews = subviews.compactMap { $0 as? ItemView }
+      /*
       guard let itemViews = subviews as? [ItemView] else {
         fatalError("Only `ItemView`s can be used as subviews of the scroll view.")
-      }
+      }*/
       cachedAccessibilityElements = cachedAccessibilityElements ?? itemViews
         .filter {
           switch $0.itemType {
